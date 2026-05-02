@@ -2,6 +2,23 @@
 
 Kernel local-first para integrar tecnología observacionista con proyectos de agentes sin riesgo operacional.
 
+## Para qué se usa
+
+Este kit convierte agentes IA, wrappers de navegador, research tools y
+automatizaciones de código en flujos observables: primero capturan evidencia,
+después calculan estado/riesgo, luego pasan por ActionGate y solo entonces se
+decide si una acción puede seguir.
+
+## Problemas que reduce
+
+- Alucinación pública: los claims se registran con evidencia antes de generar
+  reportes o publicar.
+- Pérdida de memoria entre sesiones: `ObservationEnvelope`, fingerprints y
+  `EvidenceStore` mantienen continuidad fuera del chat.
+- Automatización peligrosa: shell, browser, red, uploads y acciones externas
+  quedan en dry-run o revisión humana.
+- Integraciones opacas: cada adaptación deja una huella auditable en SQLite.
+
 ## Qué incluye
 
 - `ObservationEnvelope`: formato universal para observaciones.
