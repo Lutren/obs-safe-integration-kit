@@ -16,10 +16,10 @@ Scope: local source package, ZIP artifact and local staging repo. No external pu
 | JSON ficha | `python -m json.tool docs\product\agent_product_fichas_2026-05-02.json` | `json ok` |
 | cache check | search for `.pytest_cache` and `__pycache__` under package | no matches |
 | manifest | `python tools\release\product_manifest.py --product obs-safe-integration-kit --hash --write` | 20 files, 0 blocked, 0 excluded |
-| ZIP | `python tools\release\package_free_dev.py --product obs-safe-integration-kit --execute` | `releases\free-dev\obs-safe-integration-kit.zip`, sha256 `2b2d2ff7aae537055ceec4247f41830b5a21c1e41ca1a34143dd8e20cfac6150` |
+| ZIP | `python tools\release\package_free_dev.py --product obs-safe-integration-kit --execute` | `releases\free-dev\obs-safe-integration-kit.zip` written; exact hash is recorded in external release evidence |
 | ZIP smoke | `python tools\release\verify_free_dev_release.py --product obs-safe-integration-kit --write` | 20 expected members, 20 actual members, `ok=true` |
 | ZIP secret scan | `python tools\release\scan_secrets.py --artifact releases\free-dev\obs-safe-integration-kit.zip --json --fail-on-findings` | `count_reported=0` |
-| local staging | `python tools\release\stage_free_dev_repos.py --product obs-safe-integration-kit --write --json` | clean repo, commit `32ab939`, no remote |
+| local staging | `python tools\release\stage_free_dev_repos.py --product obs-safe-integration-kit --write --json` | clean repo, no remote; exact head is recorded in external staging evidence |
 | staging secret scan | `python tools\release\scan_secrets.py --path publish_staging\open-dev\obs-safe-integration-kit --json --fail-on-findings` | `count_reported=0` |
 
 ## Claim Scan Note
